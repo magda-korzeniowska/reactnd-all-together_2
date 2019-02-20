@@ -24,6 +24,16 @@ class App extends Component {
     messages: []   // { username: 'Amy', text: 'Hi, Jon!' }
   }
 
+  onNewMessage = (username, message) => {
+    const newMessage = {
+      ['username']: username,
+      ['text']: message
+    }
+    this.setState((currentState) => ({
+      messages: currentState.messages.concat([newMessage])
+    }))
+  }
+
   isDisabled = () => {
     return false;
   };
@@ -40,6 +50,8 @@ class App extends Component {
             <ChatWindow
               key={user.username}
               user={user}
+              messages={this.state.messages}
+              onNewMessage={this.onNewMessage}
             />
           ))}
         </div>
