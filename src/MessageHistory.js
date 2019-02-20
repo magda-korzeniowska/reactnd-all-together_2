@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class MessageHistory extends Component {
-  render() {
-    return (
-      <ul className="message-list">
-        {this.props.messages.map((message, index) => (
-          <li
-            key={index}
-            className={
-              message.username === this.props.user.username ? 'message sender' : 'message recipient'
-            }
-          >
-            <p>{`${message.username}: ${message.text}`}</p>
-          </li>
-        ))}
-      </ul>
-    )
-  }
+const MessageHistory = (props) => {
+  return (
+    <ul className="message-list">
+      {props.messages.map((message, index) => (
+        <li
+          key={index}
+          className={
+            message.username === props.user.username ? 'message sender' : 'message recipient'
+          }
+        >
+          <p>{`${message.username}: ${message.text}`}</p>
+        </li>
+      ))}
+    </ul>
+  )
 }
+
+MessageHistory.propTypes = {
+  user: PropTypes.object.isRequired,
+  messages: PropTypes.array.isRequired
+}
+
 export default MessageHistory

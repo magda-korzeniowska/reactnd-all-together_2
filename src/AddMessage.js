@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMessage extends Component {
 
@@ -47,4 +48,9 @@ class AddMessage extends Component {
     )
   }
 }
+
+AddMessage.propTypes = {
+  onNewMessage: PropTypes.func.isRequired,
+}
+
 export default AddMessage

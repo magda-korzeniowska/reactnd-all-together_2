@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MessageHistory from './MessageHistory.js';
 import AddMessage from './AddMessage.js';
+import PropTypes from 'prop-types';
 
 class ChatWindow extends Component {
 
@@ -22,4 +23,11 @@ class ChatWindow extends Component {
     )
   }
 }
+
+ChatWindow.propTypes = {
+  user: PropTypes.object.isRequired,
+  messages: PropTypes.array.isRequired,
+  onNewMessage: PropTypes.func.isRequired
+}
+
 export default ChatWindow
