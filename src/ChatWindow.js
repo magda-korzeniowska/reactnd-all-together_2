@@ -3,6 +3,11 @@ import MessageHistory from './MessageHistory.js';
 import AddMessage from './AddMessage.js';
 
 class ChatWindow extends Component {
+
+  onNewMessage = (message) => {
+    this.props.onNewMessage(this.props.user.username, message)
+  }
+
   render() {
     return (
       <div className="chat-window">
@@ -12,8 +17,7 @@ class ChatWindow extends Component {
           user={this.props.user}
           messages={this.props.messages}
         />
-        <AddMessage onNewMessage={this.props.onNewMessage}/>
-
+        <AddMessage onNewMessage={this.onNewMessage}/>
       </div>
     )
   }

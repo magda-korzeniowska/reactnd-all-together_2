@@ -34,10 +34,6 @@ class App extends Component {
     }))
   }
 
-  isDisabled = () => {
-    return false;
-  };
-
   render() {
     return (
       <div className="App">
