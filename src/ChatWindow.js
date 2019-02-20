@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MessageHistory from './MessageHistory.js'
+import MessageHistory from './MessageHistory.js';
+import AddMessage from './AddMessage.js';
 
 class ChatWindow extends Component {
   render() {
@@ -11,17 +12,8 @@ class ChatWindow extends Component {
           user={this.props.user}
           messages={this.props.messages}
         />
+        <AddMessage onNewMessage={this.props.onNewMessage}/>
 
-        {/* <div>
-          <form className="input-group">
-            <input type="text" className="form-control" placeholder="Enter your message..." />
-            <div className="input-group-append">
-              <button className="btn submit-button" disabled={this.isDisabled()}>
-                SEND
-              </button>
-            </div>
-          </form>
-        </div> */}
       </div>
     )
   }
